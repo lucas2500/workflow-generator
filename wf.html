@@ -19,13 +19,21 @@
 				<input type="text" name="" class="form-control" placeholder="NOME DO WORKFLOW" required="">
 			</div>
 
+			<div class="form-group">
+				<select class="form-control">
+					<option>SELECIONAR STATUS</option>
+					<option>ATIVO</option>
+					<option>INATIVO</option>
+				</select>
+			</div>
+
 			<label style="color: white;">Separar emails por virgulas (ex: lucasrafael654@gmail.com, turock360@gmail.com)</label>
 			<div class="form-group">
 				<input type="text" name="" class="form-control" placeholder="DESTINATÁRIO(S)" required=""> 
 			</div>
 
 			<div class="form-group">
-				<textarea class="form-control" placeholder="CORPO DO WORKFLOW"></textarea>
+				<textarea name="" class="form-control" placeholder="CORPO DO WORKFLOW"></textarea>
 			</div>
 
 			<div class="form-group">
@@ -37,18 +45,7 @@
 			</div>
 
 			<div class="form-group">
-				<select class="form-control">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>6</option>
-					<option>7</option>
-					<option>8</option>
-					<option>9</option>
-					<option>10</option>
-				</select>
+				<input type="text" name="" class="form-control"  placeholder="RECCORÊNCIA EM MINUTOS" required="">
 			</div>
 
 			<div class="">
@@ -83,13 +80,20 @@
 		<table class="table table-bordered mt-4">
 			<tr>
 				<th>Nome WF</th>
-				<th>Usuário</th>
+				<th>Status</th>
 				<th>Recorrência</th>
 				<th>Editar</th>
+			</tr>
+
+			<tr>
+				<td>WF DE TESTE 001</td>
+				<td>Ativo</td>
+				<td>10 minuto(s)</td>
+				<td><button class="btn btn-info">Editar</button></td>
 			</tr>
 		</table>
 	</div>
 
-	
+
 </body>
 </html>
