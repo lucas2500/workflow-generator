@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,16 +17,16 @@
 
 		<br />
 
-		<form action="" method="">
+		<form action="<?php echo base_url();?>main/GrvWf001" method="post" enctype="multipart/form-data" accept=".pdf, .jpg, .png, .doc, .docx, .zip, .rar, .pptx">
 			<div class="form-group">
-				<input type="text" name="" class="form-control" placeholder="NOME DO WORKFLOW" required="">
+				<input type="text" name=""nome class="form-control" placeholder="NOME DO WORKFLOW" required="">
 			</div>
 
 			<div class="form-group">
-				<select class="form-control">
-					<option>SELECIONAR STATUS</option>
-					<option>ATIVO</option>
-					<option>INATIVO</option>
+				<select class="form-control" name="status" required="">
+					<option value="">SELECIONAR STATUS</option>
+					<option value="ATIVO">ATIVO</option>
+					<option value="INATIVO">INATIVO</option>
 				</select>
 			</div>
 
