@@ -13,6 +13,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 
+	<div class="container text-right mt-4">
+		<button class="btn btn-primary" data-toggle="modal" data-target="#WF">Visualizar workflows</button>
+	</div>
+
 	<div class="container bg-primary mt-4">
 
 		<br />
@@ -78,30 +82,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	</div>
 
-	<div class="container">
 
-		<table class="table table-bordered mt-4 text-center">
-			<tr>
-				<th>Nome WF</th>
-				<th>Status</th>
-				<th>Recorrência</th>
-			</tr>
+	<div class="modal fade" id="WF">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Workflows cadastrados</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
 
-			<?php 
+				<div class="modal-body">
+					<div class="container">
 
-			foreach ($workflow as $wf){
+						<table class="table table-bordered mt-4 text-center">
+							<tr>
+								<th>Nome WF</th>
+								<th>Status</th>
+								<th>Recorrência</th>
+							</tr>
 
-				echo "<tr>";
-				echo "<td>". $wf->nome ."</td>";
-				echo "<td>". $wf->status ."</td>";
-				echo "<td>". $wf->recorrencia ."</td>";
-				echo "</tr>";
+							<?php 
 
-			}
-			?>
-		</table>
+							foreach ($workflow as $wf){
+
+								echo "<tr>";
+								echo "<td>". $wf->nome ."</td>";
+								echo "<td>". $wf->status ."</td>";
+								echo "<td>". $wf->recorrencia ."</td>";
+								echo "</tr>";
+
+							}
+							?>
+						</table>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+				</div>
+
+			</div>
+		</div>
 	</div>
-
 
 </body>
 </html>
