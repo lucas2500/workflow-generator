@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<form action="<?php echo base_url();?>main/GrvWf001" method="post" enctype="multipart/form-data" accept=".pdf, .jpg, .png, .doc, .docx, .zip, .rar, .pptx">
 			<div class="form-group">
-				<input type="text" name=""nome class="form-control" placeholder="NOME DO WORKFLOW" required="">
+				<input type="text" name="nome" class="form-control" placeholder="NOME DO WORKFLOW" required="">
 			</div>
 
 			<div class="form-group">

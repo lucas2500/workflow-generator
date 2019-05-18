@@ -26,57 +26,55 @@ class Main extends CI_Controller {
 		$data['corpo'] = $this->input->post('corpo');
 		$data['rodape'] = $this->input->post('rodape');
 		$data['recorrencia'] = $this->input->post('recorrencia');
-		$data['anexo01'] = $this->input->post('anexo01');
-		$data['anexo02'] = $this->input->post('anexo02');
-		$data['anexo03'] = $this->input->post('anexo03');
+		$data['anexo01'] = "";
+		$data['anexo02'] = "";
+		$data['anexo03'] = "";
 
 		$path = "./uploads/";
 		if ( ! is_dir($path)) {
-
 			mkdir($path, 0777, $recursive = true);
 		}
 
-		$ConfigFile01['upload_path']   = $path;
-		$ConfigFile01['allowed_types'] = 'pptx|docx|pdf|zip|rar|doc|jpg|png';
-		$ConfigFile01['encrypt_name']  = FALSE;
-		$ConfigFile01['file_name'] = $data['anexo01'];
+		$FileConfig01['upload_path']   = $path;
+		$FileConfig01['allowed_types'] = 'pptx|docx|pdf|zip|rar|doc|jpg|png';
+		$FileConfig01['file_name'] = $data['anexo01'];
 
-		$this->upload->initialize($ConfigFile01);
+		$this->upload->initialize($FileConfig01);
 
 		if ($this->upload->do_upload('anexo01')) {
 
 			$file = $this->upload->data();
 			$data['anexo01'] = $file['raw_name'].$file['file_ext'];
-
 		} 
 
-		$ConfigFile02['upload_path']   = $path;
-		$ConfigFile02['allowed_types'] = 'pptx|docx|pdf|zip|rar|doc|jpg|png';
-		$ConfigFile02['encrypt_name']  = FALSE;
-		$ConfigFile02['file_name'] = $data['anexo02'];
+		$FileConfig02['upload_path']   = $path;
+		$FileConfig02['allowed_types'] = 'pptx|docx|pdf|zip|rar|doc|jpg|png';
+		$FileConfig02['file_name'] = $data['anexo02'];
+
+		$this->upload->initialize($FileConfig02);
 
 		if ($this->upload->do_upload('anexo02')) {
 
-			$file2 = $this->upload->data();
-			$data['anexo02'] = $file2['raw_name'].$file['file_ext'];
-
+			$file = $this->upload->data();
+			$data['anexo02'] = $file['raw_name'].$file['file_ext'];
 		} 
 
-		$ConfigFile03['upload_path']   = $path;
-		$ConfigFile03['allowed_types'] = 'pptx|docx|pdf|zip|rar|doc|jpg|png';
-		$ConfigFile03['encrypt_name']  = FALSE;
-		$ConfigFile03['file_name'] = $data['anexo03'];
+		$FileConfig03['upload_path']   = $path;
+		$FileConfig03['allowed_types'] = 'pptx|docx|pdf|zip|rar|doc|jpg|png';
+		$FileConfig03['file_name'] = $data['anexo03'];
+
+		$this->upload->initialize($FileConfig02);
 
 		if ($this->upload->do_upload('anexo03')) {
 
-			$file3 = $this->upload->data();
-			$data['anexo03'] = $file2['raw_name'].$file['file_ext'];
-
+			$file = $this->upload->data();
+			$data['anexo03'] = $file['raw_name'].$file['file_ext'];
 		} 
 
 		$this->wf->GrvWf001($data);
 		redirect('Main/index');
 
 	}
+
 
 }
