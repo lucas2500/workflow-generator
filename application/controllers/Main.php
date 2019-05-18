@@ -13,7 +13,9 @@ class Main extends CI_Controller {
 
 	public function index(){
 
-		$this->load->view('Main_view');
+		$data['workflow'] = $this->wf->GetWF();
+
+		$this->load->view('Main_view', $data);
 
 	}
 

@@ -80,20 +80,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<div class="container">
 
-		<table class="table table-bordered mt-4">
+		<table class="table table-bordered mt-4 text-center">
 			<tr>
 				<th>Nome WF</th>
 				<th>Status</th>
 				<th>Recorrência</th>
-				<th>Editar</th>
 			</tr>
 
-			<tr>
-				<td>WF DE TESTE 001</td>
-				<td>Ativo</td>
-				<td>10 minuto(s)</td>
-				<td><button class="btn btn-info">Editar</button></td>
-			</tr>
+			<?php 
+
+			foreach ($workflow as $wf){
+
+				echo "<tr>";
+				echo "<td>". $wf->nome ."</td>";
+				echo "<td>". $wf->status ."</td>";
+				echo "<td>". $wf->recorrencia ."</td>";
+				echo "</tr>";
+
+			}
+			?>
 		</table>
 	</div>
 

@@ -12,6 +12,15 @@ class GrvWF extends CI_Model {
 		endif;
 	}
 
+	public function GetWF(){
+
+		$this->db->order_by('ID', 'DESC');
+		$query = $this->db->get('wf001');
+
+		return $query->result();
+
+	}
+
 }
 
 
