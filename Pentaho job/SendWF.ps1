@@ -3,7 +3,7 @@ $rows = Import-csv C:\xampp\htdocs\wf\Repo/wf.csv -Encoding UTF7
 foreach($wf in $rows){
 
     $MailSender = "turock360@gmail.com"
-    $Password = ConvertTo-SecureString -String "bombapatch36" -AsPlainText -Force
+    $Password = ConvertTo-SecureString -String "" -AsPlainText -Force
     $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $MailSender, $Password
 
     $Body = "
