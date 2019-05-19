@@ -33,11 +33,12 @@ class Main extends CI_Controller {
 		$data['anexo03'] = "";
 
 		$path = "./uploads/";
-		if ( ! is_dir($path)) {
+		if (! is_dir($path)) {
 			mkdir($path, 0777, $recursive = true);
 		}
 
 		$FileConfig01['upload_path']   = $path;
+		$FileConfig01['remove_spaces'] = TRUE;
 		$FileConfig01['allowed_types'] = 'pptx|docx|pdf|zip|rar|doc|jpg|png';
 		$FileConfig01['file_name'] = $data['anexo01'];
 
@@ -50,6 +51,7 @@ class Main extends CI_Controller {
 		} 
 
 		$FileConfig02['upload_path']   = $path;
+		$FileConfig02['remove_spaces'] = TRUE;
 		$FileConfig02['allowed_types'] = 'pptx|docx|pdf|zip|rar|doc|jpg|png';
 		$FileConfig02['file_name'] = $data['anexo02'];
 
@@ -62,6 +64,7 @@ class Main extends CI_Controller {
 		} 
 
 		$FileConfig03['upload_path']   = $path;
+		$FileConfig03['remove_spaces'] = TRUE;
 		$FileConfig03['allowed_types'] = 'pptx|docx|pdf|zip|rar|doc|jpg|png';
 		$FileConfig03['file_name'] = $data['anexo03'];
 
