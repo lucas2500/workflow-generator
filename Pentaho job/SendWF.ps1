@@ -21,21 +21,62 @@ foreach($wf in $rows){
         </html>
     "
 
-    $anexo01 = 'C:\xampp\htdocs\wf\uploads\'+$wf.anexo01.trim()
-    $anexo02 = 'C:\xampp\htdocs\wf\uploads\'+$wf.anexo02.trim()
-    $anexo03 = 'C:\xampp\htdocs\wf\uploads\'+$wf.anexo03.trim()
 
-    write-host $anexo01
+    $anexo01 = $wf.anexo01.trim()
+    $anexo02 = $wf.anexo02.trim()
+    $anexo03 = $wf.anexo03.trim()
 
-    try{
+    write-host $anexo03
 
-        Send-MailMessage -From $MailSender -To $wf.destinatario -Subject $wf.assunto -Body $Body -BodyAsHtml -Attachments $anexo01, $anexo02, $anexo03 -Credential $credential -SmtpServer "smtp.gmail.com" -Port "587" -UseSsl -Encoding UTF8
+    $path01 = 'C:\xampp\htdocs\wf\uploads\'+$anexo01
+    $path02 = 'C:\xampp\htdocs\wf\uploads\'+$anexo02
+    $path03 = 'C:\xampp\htdocs\wf\uploads\'+$anexo03
 
-        write-host "Email enviado com suceso para: " $wf.destinatario
-    
-    } catch {
+    if($anexo01 -NotMatch '' -and $anexo02 -match '' -and $anexo03 -match ''){
 
-        write-host "Nao foi possivel enviar o email para: " $wf.destinatario
+        # try{
+
+            Send-MailMessage -From $MailSender -To $wf.destinatario -Subject $wf.assunto -Body $Body -BodyAsHtml -Attachments $path01 -Credential $credential -SmtpServer "smtp.gmail.com" -Port "587" -UseSsl -Encoding UTF8
+
+            write-host "Email enviado com suceso para: " $wf.destinatario
+
+            write-host "Entrou no 01"
+        
+        # } catch {
+
+            # write-host "Nao foi possivel enviar o email para: " $wf.destinatario
+        # }
+
+
+    } elseif ($anexo01 -NotMatch '' -and $anexo02 -NotMatch '' -and $anexo03 -match ''){
+
+        # try{
+
+            Send-MailMessage -From $MailSender -To $wf.destinatario -Subject $wf.assunto -Body $Body -BodyAsHtml -Attachments $path01, $path02 -Credential $credential -SmtpServer "smtp.gmail.com" -Port "587" -UseSsl -Encoding UTF8
+
+            write-host "Email enviado com suceso para: " $wf.destinatario
+
+             write-host "Entrou no 02"
+        
+        # } catch {
+
+            # write-host "Nao foi possivel enviar o email para: " $wf.destinatario
+        # }
+
+
+    } else {
+
+        # try{
+
+            Send-MailMessage -From $MailSender -To $wf.destinatario -Subject $wf.assunto -Body $Body -BodyAsHtml -Attachments $path01, $path02, $path03 -Credential $credential -SmtpServer "smtp.gmail.com" -Port "587" -UseSsl -Encoding UTF8
+
+            write-host "Email enviado com suceso para: " $wf.destinatario
+
+             write-host "Entrou no 03"
+        
+        # } catch {
+
+            # write-host "Nao foi possivel enviar o email para: " $wf.destinatario
+        # }
     }
-
 }
